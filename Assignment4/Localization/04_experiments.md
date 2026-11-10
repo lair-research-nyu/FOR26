@@ -64,13 +64,9 @@ python replay_filter.py my_run --num-particles 1000 --seed 1 --output n1000.csv
 
 **L1. Accuracy in simulation.** In the simulator, record a run of a square and a circle (`record_localization.py`, `drive_pattern.py`). Plot it with `plot_localization.py`. Report the mean and largest position error and heading error, against the true pose, and compare with odometry alone.
 
-**L2. Stationary variance.** Let the robot stand still for 60 s at three places: one where it sees one marker, one where it sees two, one where it sees three or more (in the simulator and on the real robot). Record with `record_localization.py`. Report the standard deviation of the estimate (x, y, heading) over the 60 s, and the spread of the particles (`std_x`, `std_y`, `std_theta` columns). Do the two agree? How does the number of markers in view change them? In the simulator, does the estimate stay on the true pose, or drift away from it? Why might it drift although nothing moves?
+**L2. Marker consistency.** Record `record_marker_errors.py` while driving through the room. Plot with `plot_marker_errors.py`. How does the error grow with distance? Is any marker consistently off? Use the answers to judge the map (M1), the detector (D2) and the camera mount (Detection page 1).
 
-**L3. Marker consistency.** Record `record_marker_errors.py` while driving through the room. Plot with `plot_marker_errors.py`. How does the error grow with distance? Is any marker consistently off? Use the answers to judge the map (M1), the detector (D2) and the camera mount (Detection page 1).
-
-**L4. Number of particles.** Record one bag in the simulator, starting with the robot somewhere it sees only one marker. Replay it with 50, 100, 500 and 2000 particles, five seeds each. Plot the mean error and the time until the error stays below 20 cm, against the number of particles. Also measure how long one update takes (the replay's run time is a good proxy). What number would you choose, and why?
-
-**L5. The real robot.** Mark four spots on the classroom floor with tape and measure their map coordinates with a tape measure from marker 2 (the map's x axis is perpendicular to marker 2's wall, see the [map page](../Mapping/README.md)). Drive the robot to each spot, let it stand for 10 s, and compare `/pose_estimate` with the measured coordinates. Make a table of the errors. Record a video of the robot driving through the classroom, together with a screen recording of RViz showing the particles converging.
+**L3. The real robot.** Mark four spots on the classroom floor with tape and measure their map coordinates with a tape measure from marker 2 (the map's x axis is perpendicular to marker 2's wall, see the [map page](../Mapping/README.md)). Drive the robot to each spot, let it stand for 10 s, and compare `/pose_estimate` with the measured coordinates. Make a table of the errors. Record a video of the robot driving through the classroom, together with a screen recording of RViz showing the particles converging.
 
 ## Hints for good experiments
 
